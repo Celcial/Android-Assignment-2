@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PetShop</string>
+    <string name="info">PetInfo</string>
+    <string name="find">PetFind</string>
+    <string name="call">PetCall</string>
+    <string name="schedule">PetSchedule</string>
 </resources>

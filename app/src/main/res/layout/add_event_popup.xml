@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <EditText
+        android:id="@+id/et_event_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Event Name:"
+        android:inputType="textPersonName"
+        android:padding="15dp" />
+
+    <DatePicker
+        android:id="@+id/dp_date_selecter"
+        android:layout_width="372dp"
+        android:layout_height="418dp"
+        android:headerBackground="@color/redTheme"
+        android:padding="15dp" />
+
+    <Switch
+        android:id="@+id/switch_reminder"
+        android:layout_width="249dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="Reminder" />
+
+    <EditText
+        android:id="@+id/et_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter 24 hour time (14:00)"
+        android:inputType="time"
+        android:padding="15dp" />
+
+
+</LinearLayout>
