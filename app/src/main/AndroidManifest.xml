@@ -20,6 +20,8 @@
         <activity android:name=".PetCall"></activity>
         <activity android:name=".PetSchedule"></activity>
         <activity android:name=".PetFind"></activity>
+        <activity android:name=".createEvent" android:theme="@style/AppTheme.Fade"></activity>
+        <activity android:name=".createPet" android:theme="@style/AppTheme.Fade"></activity>
     </application>
 
 </manifest>

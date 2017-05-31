@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/redTheme"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ed_pet_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Please enter your pets name:"
+        android:textColor="@android:color/background_light"
+        android:textColorLink="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="E.g. Fido"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/background_light" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>
