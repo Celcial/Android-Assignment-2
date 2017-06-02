@@ -5,4 +5,8 @@
     <string name="call">PetCall</string>
     <string name="schedule">PetSchedule</string>
     <string name="add_event">Add new event</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="command_name">Command Name</string>
+    <string name="button">Add</string>
 </resources>
