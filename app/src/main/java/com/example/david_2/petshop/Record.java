@@ -1,6 +1,5 @@
 package com.example.david_2.petshop;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
@@ -9,7 +8,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +45,7 @@ public class Record extends PetMenu {
         btnStop.setEnabled(false);
         btnStartPlayback.setEnabled(false);
         btnStopPlayback.setEnabled(false);
-        txtAdd = (EditText) findViewById(R.id.editText);
+        txtAdd = (EditText) findViewById(R.id.etTitle);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override

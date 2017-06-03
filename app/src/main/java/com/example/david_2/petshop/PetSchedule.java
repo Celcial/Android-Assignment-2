@@ -24,12 +24,6 @@ public class PetSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_schedule);
 
-        /* - - - Add MixStriped font to the activity - - - */
-        //TextView myTextView=(TextView)findViewById(R.id.tv_pet_name);
-        //Typeface typeFace=Typeface.createFromAsset(getAssets(),"PetShop/app/src/main/assets/fonts/MixStriped.ttf");
-        //myTextView.setTypeface(typeFace);
-        /* - - - Add MixStriped font end - - -*/
-
         Button add_event = (Button)findViewById(R.id.ib_add_event);
         add_event.setOnClickListener(new View.OnClickListener(){
 
@@ -40,18 +34,6 @@ public class PetSchedule extends AppCompatActivity {
             }
         });
         
-        
 
-        LinearLayout llDisplayData, llChangeBG;
-
-        llDisplayData = (LinearLayout) findViewById(R.id.l_all_events); /*NOT SURE*/
-        LayoutInflater linflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View customView;
-
-        customView = linflater.inflate(R.layout.layout_all_events, null);
-
-        llChangeBG = (LinearLayout) customView.findViewById(R.id.l_all_events); /*NOT SURE*/
-
-        llDisplayData.addView(customView);
     }
 }
