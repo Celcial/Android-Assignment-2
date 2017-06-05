@@ -15,7 +15,7 @@
         android:textColorLink="@android:color/background_light" />
 
     <EditText
-        android:id="@+id/etTitle"
+        android:id="@+id/et_enter_dog_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,9 +27,28 @@
         android:textColorLink="@android:color/background_light" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="102dp"
+        android:id="@+id/btn_insert_pet"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:onClick="onClick_create_pet"
+        android:text="Create pet" />
+
+    <Button
+        android:id="@+id/btn_all_dogs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="all dogs" />
+
+    <Button
+        android:id="@+id/btn_all_vaccines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="all vaccines" />
+
+    <Button
+        android:id="@+id/btn_dog_vaccines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="all dogvaccines" />
 
 </LinearLayout>

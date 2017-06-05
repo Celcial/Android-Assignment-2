@@ -84,7 +84,10 @@ public class petDatabase extends SQLiteOpenHelper {
                 " ("
                 + col_8 + " integer, "
                 + col_9 + " integer, "
-                + col_10 + " text) ");
+                + col_10 + " text), "
+                + " FOREIGN KEY (" + col_8 + ") REFERENCES " + table_dog + "(" + col_1 + "), "
+                + " FOREIGN KEY (" + col_9 + ") REFERENCES " + table_vaccine + "(" + col_5 + "), "
+                + col_10 + " text, PRIMARY KEY (" + col_8 + ", " + col_9 + "  )) ");
         db.execSQL(create_dog_vaccine_table);
     }
 

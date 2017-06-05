@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#c21e1e</color>
-    <color name="colorPrimaryDark">#c21e1e</color>
+    <color name="colorPrimary">#d6454a</color>
+    <color name="colorPrimaryDark">#d6454a</color>
     <color name="colorAccent">#000</color>
-    <color name="redTheme">#c21e1e</color>
+    <color name="redTheme">#d6454a</color>
+    <color name="solidRed">#d6454a</color>
+    <color name="charcoal">#272727</color>
+    <color name="white">#fff</color>
 </resources>

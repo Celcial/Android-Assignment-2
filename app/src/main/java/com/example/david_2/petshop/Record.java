@@ -127,7 +127,7 @@ public class Record extends PetMenu {
                 }
             }
         });
-
+/*
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -138,7 +138,7 @@ public class Record extends PetMenu {
                 finish();
             }
         });
-
+*/
         btnCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

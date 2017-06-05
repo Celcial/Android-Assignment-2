@@ -22,7 +22,7 @@ public class PetCall extends AppCompatActivity {
     private Cursor cursor;
     private ArrayList<String> cmdName = new ArrayList<>();
     private ArrayList<String> cmdPath = new ArrayList<>();
-    private W5DBHelper helper;
+    //private W5DBHelper helper;
     private ArrayAdapter adapter;
     private MediaPlayer mediaPlayer ;
 
@@ -36,8 +36,9 @@ public class PetCall extends AppCompatActivity {
         btnClear = (Button) findViewById(R.id.button3);
         btnRefresh = (Button) findViewById(R.id.button4);
         gvCommand = (GridView) findViewById(R.id.gridView);
-
+/*
         UpdateList();
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,7 @@ public class PetCall extends AppCompatActivity {
                 UpdateList();
             }
         });
+*/
 
         gvCommand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -80,6 +82,7 @@ public class PetCall extends AppCompatActivity {
         });
 
     }
+/*
 
     public void UpdateList(){
         cmdName.clear();
@@ -95,5 +98,6 @@ public class PetCall extends AppCompatActivity {
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, cmdName);
         gvCommand.setAdapter(adapter);
     }
+*/
 }
 
