@@ -40,16 +40,4 @@
         android:layout_height="wrap_content"
         android:text="all dogs" />
 
-    <Button
-        android:id="@+id/btn_all_vaccines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="all vaccines" />
-
-    <Button
-        android:id="@+id/btn_dog_vaccines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="all dogvaccines" />
-
 </LinearLayout>

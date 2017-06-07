@@ -36,16 +36,8 @@ public class createPet extends Activity {
 
     public petDatabase theDatabase;
     EditText dogName;
-    Button newPetButton, allDogs, allVaccines, allDogVaccines;
-
-    Button test;
-    TextView id;
-    Button test2;
-    TextView petName;
-
+    Button newPetButton, allDogs;
     String PetName;
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -65,17 +57,13 @@ public class createPet extends Activity {
         dogName = (EditText)findViewById(R.id.et_enter_dog_name);
         newPetButton = (Button)findViewById(R.id.btn_insert_pet);
         allDogs = (Button)findViewById(R.id.btn_all_dogs);
-        allVaccines = (Button)findViewById(R.id.btn_all_vaccines);
-        allDogVaccines = (Button)findViewById(R.id.btn_dog_vaccines);
+
 
         theDatabase = new petDatabase(this);
         theDatabase.getWritableDatabase();
 
         // - - - Launch buttons - - - //
         onClick_allDogs();
-        /*onClick_allVaccines();
-        onClick_dog_vaccines();*/
-
     }
 
 
@@ -104,61 +92,6 @@ public class createPet extends Activity {
             }
         });
     }
-
-/*    public void onClick_allVaccines()
-    {
-        allVaccines.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Cursor data = theDatabase.allVaccines();
-                if (data.getCount() == 0)
-                {
-                    showMessage("Error", "no data found");
-                }
-
-                StringBuffer buffer = new StringBuffer();
-                while (data.moveToNext())
-                {
-                    buffer.append("ID : " + data.getString(0) + "\n");
-                    buffer.append("Vaccine : " + data.getString(1) + "\n\n");
-                }
-                showMessage("Data : ", buffer.toString());
-
-            }
-        });
-    }*/
-
-/*    public void onClick_dog_vaccines()
-    {
-        allDogVaccines.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-
-
-                Cursor data = theDatabase.allDogVaccines();
-
-                if (data.getCount() == 0)
-                {
-                    showMessage("Error", "no data found");
-                }
-
-                StringBuffer buffer = new StringBuffer();
-                while (data.moveToNext())
-                {
-                    buffer.append("PetID : " + data.getString(0) + "\n");
-                    buffer.append("VaccineID : " + data.getString(1) + "\n");
-                    buffer.append("Date : " + data.getString(2) + "\n");
-                    buffer.append("Notes : " + data.getString(3) + "\n\n");
-                }
-                showMessage("Data : ", buffer.toString());
-
-            }
-        });
-    }*/
-
-
 
     public void onClick_create_pet(View aView)
     {
