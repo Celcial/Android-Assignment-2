@@ -3,32 +3,20 @@ package com.example.david_2.petshop;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,9 +24,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
 
@@ -59,9 +44,9 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
         theDatabase = new petDatabase(this);
 
         // - - - Loads dummy data from csv - - - //
-        csvLoadDogs();
-        csvLoadVaccines();
-        csvLoadDogVaccines ();
+        //csvLoadDogs();
+        //csvLoadVaccines();
+        //csvLoadDogVaccines ();
 
         // - - - load array of dog names from the database - - - //
         dogNames = new ArrayList<>();
@@ -162,7 +147,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
                 //holder.theText.setTextSize(5);
                 holder.theText.setText(allDogs.get(position));
                 holder.theCirle.setImageResource(R.drawable.red_dot_lined);
-                holder.theText.setTextColor(getColor(R.color.solidRed));
+                //holder.theText.setTextColor(getColor(R.color.solidRed));
 
             }
             else
@@ -170,7 +155,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
                 holder.theText.setText(allDogs.get(position));
                 //holder.theText.setTextSize();
                 holder.theText.setTypeface(custom_font);
-                holder.theText.setTextColor(getColor(R.color.white));
+                //holder.theText.setTextColor(getColor(R.color.white));
                 holder.theCirle.setImageResource(R.drawable.red_dot);
 
             }
