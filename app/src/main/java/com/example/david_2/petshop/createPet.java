@@ -73,8 +73,8 @@ public class createPet extends Activity {
 
         // - - - Launch buttons - - - //
         onClick_allDogs();
-        onClick_allVaccines();
-        onClick_dog_vaccines();
+        /*onClick_allVaccines();
+        onClick_dog_vaccines();*/
 
     }
 
@@ -105,7 +105,7 @@ public class createPet extends Activity {
         });
     }
 
-    public void onClick_allVaccines()
+/*    public void onClick_allVaccines()
     {
         allVaccines.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,9 +127,9 @@ public class createPet extends Activity {
 
             }
         });
-    }
+    }*/
 
-    public void onClick_dog_vaccines()
+/*    public void onClick_dog_vaccines()
     {
         allDogVaccines.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +156,7 @@ public class createPet extends Activity {
 
             }
         });
-    }
+    }*/
 
 
 

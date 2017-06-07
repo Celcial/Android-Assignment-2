@@ -17,6 +17,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import static java.lang.Integer.parseInt;
 
 public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
+
 
     Intent PetDetails;
     ArrayList<String> dogNames;
@@ -43,13 +45,15 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
         // - - - LAUNCH DATABASE! - - - //
         theDatabase = new petDatabase(this);
 
+
+
         // - - - Loads dummy data from csv - - - //
-        //csvLoadDogs();
-        //csvLoadVaccines();
-        //csvLoadDogVaccines ();
+        csvLoadDogs();
+
 
         // - - - load array of dog names from the database - - - //
         dogNames = new ArrayList<>();
+
         fillNamesArray();
         // - - - Renders the GridViewt with the newAdapter - - - //
         myGrid = (GridView) findViewById(R.id.gv_list_dogs);
@@ -68,7 +72,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
         else
         {
             PetDetails = new Intent(this, PetDetails.class);
-            PetDetails.putExtra("id", position);
+            PetDetails.putExtra("id", (position + 1)); // dogIDs.get(position)
             PetDetails.putExtra("allNames", (dogNames.get(position)));
             startActivity(PetDetails);
             this.recreate();
@@ -82,7 +86,6 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
         ImageView theCirle;
         ViewHolder(View v)
         {
-            //dogNameTextView = (Button)v.findViewById(R.id.tv_dog_name);
             theCirle = (ImageView) v.findViewById(R.id.iv_Circle);
             theText = (TextView) v.findViewById(R.id.the_pet_name);
 
@@ -143,19 +146,13 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
             }
             if(position + 1 == allDogs.size())
             {
-                //holder.theText.setTypeface(custom_font);
-                //holder.theText.setTextSize(5);
                 holder.theText.setText(allDogs.get(position));
                 holder.theCirle.setImageResource(R.drawable.red_dot_lined);
-                //holder.theText.setTextColor(getColor(R.color.solidRed));
-
             }
             else
             {
                 holder.theText.setText(allDogs.get(position));
-                //holder.theText.setTextSize();
                 holder.theText.setTypeface(custom_font);
-                //holder.theText.setTextColor(getColor(R.color.white));
                 holder.theCirle.setImageResource(R.drawable.red_dot);
 
             }
@@ -190,44 +187,6 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
                 String[] token = line.split(",");
                 // read data
                 Boolean state = theDatabase.insertDog_ID(parseInt(token[0]),token[1],token[2],token[3]);
-            }
-        } catch (IOException e) {
-            Log.wtf("createPet", "Error importing file on line" + line, e);
-            e.printStackTrace();
-        }
-    }
-
-    public void csvLoadVaccines ()
-    {
-        InputStream is = getResources().openRawResource(R.raw.vaccines);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null)
-            {
-                // split on ","
-                String[] token = line.split(",");
-                // read data
-                Boolean state = theDatabase.insertVaccine_ID(parseInt(token[0]),token[1]);
-            }
-        } catch (IOException e) {
-            Log.wtf("createPet", "Error importing file on line" + line, e);
-            e.printStackTrace();
-        }
-    }
-
-    public void csvLoadDogVaccines ()
-    {
-        InputStream is = getResources().openRawResource(R.raw.dogvaccines);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null)
-            {
-                // split on ","
-                String[] token = line.split(",");
-                // read data
-                Boolean state = theDatabase.insertDogVaccine(parseInt(token[0]),parseInt(token[1]),token[2], token[3]);
             }
         } catch (IOException e) {
             Log.wtf("createPet", "Error importing file on line" + line, e);

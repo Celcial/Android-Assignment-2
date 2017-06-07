@@ -42,24 +42,19 @@ public class petDatabase extends SQLiteOpenHelper {
     public static final String col_3 = "WEIGHT";
     public static final String col_4 = "HEIGHT";
 
-    // Vaccine table details
-    public static final String table_vaccine = "VACCINE";
-    public static final String col_5 = "VACCINEID";
-    public static final String col_6 = "VNAME";
-
-    // Dogvaccine table details
-    public static final String table_dogvaccine = "DOGVACCINE";
-    public static final String col_7 = "PETID";
-    public static final String col_8 = "VACCINEID";
-    public static final String col_9 = "DATE";
-    public static final String col_10 = "NOTES";
     // Command table details
     public static final String table_command = "COMMAND";
     public static final String col_11 = "COMMANDID";
     public static final String col_12 = "PETID";
     public static final String col_13 = "CNAME";
     public static final String col_14 = "PATHWAY";
-
+    // Event table details
+    public static final String table_event = "EVENT";
+    public static final String col_15 = "EVENTID";
+    public static final String col_16 = "NAME";
+    public static final String col_17 = "DATE";
+    public static final String col_18 = "NOTES";
+    public static final String col_19 = "PETID";
 
     public petDatabase(Context context) {
 
@@ -78,25 +73,6 @@ public class petDatabase extends SQLiteOpenHelper {
                 + col_4  + " text) ");
         db.execSQL(create_dog_table);
 
-        // - - - CREATE vaccine table - - - //
-        String create_vaccine_table = ("create table " + table_vaccine +
-                " ("
-                + col_5 + " integer primary key autoincrement, "
-                + col_6 + " text) ");
-        db.execSQL(create_vaccine_table);
-
-        // - - - CREATE dogvaccine table - - - //
-        String create_dog_vaccine_table = ("create table " + table_dogvaccine +
-                " ("
-                + col_7 + " integer, "
-                + col_8 + " integer, "
-                + col_9 + " text, "
-                + col_10 + " text, "
-                + " FOREIGN KEY (" + col_7 + ") REFERENCES " + table_dog + "(" + col_1 + "), "
-                + " FOREIGN KEY (" + col_8 + ") REFERENCES " + table_vaccine + "(" + col_5 + "), "
-                +  "PRIMARY KEY (" + col_7 + ", " + col_8 + "  )) ");
-        db.execSQL(create_dog_vaccine_table);
-
         String create_command_table = ("create table " + table_command
                 + " ("
                 + col_11 + " integer autoincrement, "
@@ -105,17 +81,26 @@ public class petDatabase extends SQLiteOpenHelper {
                 + col_14 + " text, "
                 + "FOREIGN KEY (" + col_12 + ") REFERENCES " + table_dog + " (" + col_1 + "), "
                 + "PRIMARY KEY (" + col_11 + " , " + col_12 + " )) ");
+
+
+        String create_event_table = ("create table " + table_event
+                + " ("
+                + col_15 + "integer autoincrement, "
+                + col_16 + "text, "
+                + col_17 + "text, "
+                + col_18 + "text, "
+                + col_19 + "integer, "
+                + " FOREIGN KEY (" + col_19 + ") REFERENCES " + table_dog + "(" + col_1 + "), "
+                +  "PRIMARY KEY (" + col_15 + ", " + col_19 + "  )) ");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists " + table_dog);
         //onCreate(db);
-        db.execSQL("drop table if exists " + table_vaccine);
-        //onCreate(db);
-        db.execSQL("drop table if exists " + table_dogvaccine);
-        //onCreate(db);
         db.execSQL("drop table if exists " + table_command);
+        //onCreate(db);
+        db.execSQL("drop table if exists " + table_event);
         onCreate(db);
     }
 
@@ -196,118 +181,16 @@ public class petDatabase extends SQLiteOpenHelper {
         return res;
     }
 
-// - - - METHODS FOR HANDLING VACCINES - - - //
-
-    public boolean insertVaccine(String name)
+    public Cursor getDogIDs()
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(col_6, name);
-        long result = db.insert(table_vaccine, null, values);
-
-        if (result == -1)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    public Cursor getVaccineID(String name)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select " + col_5 + " from ("+ table_vaccine + " where " + col_6 + " = " + name + ")"  ,null);
+        Cursor res = db.rawQuery("Select PETID From DOG", null);
         return res;
     }
 
-    // - - - For populating with the CSV - - - //
-    public boolean insertVaccine_ID (int id, String name)
-    {
-
-        try
-        {
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(col_5, id);
-            values.put(col_6, name);
-
-            long result = db.insert(table_vaccine, null, values);
-
-            if (result == -1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        catch(SQLiteConstraintException e)
-        {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public Cursor allVaccines()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * From " + table_vaccine, null);
-        return res;
-    }
-
-// - - - METHODS FOR HANDING DOGVACCINES - - -//
-
-    public boolean insertDogVaccine(int dogID, int vaccineID, String date, String notes)
-    {
-        try
-        {
-            SQLiteDatabase db = this.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            values.put(col_7, dogID);
-            values.put(col_8, vaccineID);
-            values.put(col_9, date);
-            values.put(col_10, notes);
-
-            long result = db.insert(table_dogvaccine, null, values);
-
-            if (result == -1)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }}
-        catch(SQLiteConstraintException e)
-        {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public Cursor vaccinesForPet(int petID)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select " +table_vaccine + "." + col_6 + " , " + table_dogvaccine + "." + col_9 + " , " + table_dogvaccine + "." + col_10 + " from "
-                + table_dogvaccine + " , " + table_vaccine
-                + " where (" + table_vaccine + "." + col_5 + " = " + table_dogvaccine + "." + col_8
-                + ") AND ("
-                + table_dogvaccine + "." + col_7 + " = " + petID +")",null);
-        return res;
-    }
-
-    public Cursor allDogVaccines()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * From " + table_dogvaccine, null);
-        return res;
-    }
 // - - - METHODS FOR HANDLING COMMAND - - - //
 
-// #################################################################################################
+    // Insert a new command object
     public boolean insertCommand(String commandName, String path, int petID)
     {
         try
@@ -335,6 +218,7 @@ public class petDatabase extends SQLiteOpenHelper {
         }
     }
 
+
     public Cursor dogCommands(int petID, int commandID)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -345,19 +229,4 @@ public class petDatabase extends SQLiteOpenHelper {
 
         return res;
     }
-//##################################################################################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
