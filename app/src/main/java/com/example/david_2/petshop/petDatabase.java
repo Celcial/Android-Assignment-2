@@ -53,7 +53,7 @@ public class petDatabase extends SQLiteOpenHelper {
     public static final String col_8 = "VACCINEID";
     public static final String col_9 = "DATE";
     public static final String col_10 = "NOTES";
-
+    // Command table details
     public static final String table_command = "COMMAND";
     public static final String col_11 = "COMMANDID";
     public static final String col_12 = "PETID";
@@ -215,6 +215,13 @@ public class petDatabase extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getVaccineID(String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("Select " + col_5 + " from ("+ table_vaccine + " where " + col_6 + " = " + name + ")"  ,null);
+        return res;
+    }
+
     // - - - For populating with the CSV - - - //
     public boolean insertVaccine_ID (int id, String name)
     {
@@ -284,7 +291,7 @@ public class petDatabase extends SQLiteOpenHelper {
     public Cursor vaccinesForPet(int petID)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select * from "
+        Cursor res = db.rawQuery("Select " +table_vaccine + "." + col_6 + " , " + table_dogvaccine + "." + col_9 + " , " + table_dogvaccine + "." + col_10 + " from "
                 + table_dogvaccine + " , " + table_vaccine
                 + " where (" + table_vaccine + "." + col_5 + " = " + table_dogvaccine + "." + col_8
                 + ") AND ("
@@ -292,12 +299,65 @@ public class petDatabase extends SQLiteOpenHelper {
         return res;
     }
 
-
-
     public Cursor allDogVaccines()
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("Select * From " + table_dogvaccine, null);
         return res;
     }
+// - - - METHODS FOR HANDLING COMMAND - - - //
+
+// #################################################################################################
+    public boolean insertCommand(String commandName, String path, int petID)
+    {
+        try
+        {
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(col_12, petID);
+            values.put(col_13, commandName);
+            values.put(col_14, path);
+
+            long result = db.insert(table_command, null, values);
+
+            if (result == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }}
+        catch(SQLiteConstraintException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Cursor dogCommands(int petID, int commandID)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("Select " + col_13 + " , " + col_14
+                + " From " + table_command
+                + " where (" + col_12 + " = " + petID
+                + " and " + col_11 + " = " + commandID + ")"  , null);
+
+        return res;
+    }
+//##################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

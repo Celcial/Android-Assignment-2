@@ -9,6 +9,7 @@
     <string name="cancel">Cancel</string>
     <string name="command_name">Command Name</string>
     <string name="button">Add</string>
+
     <string name="dummy">dummy</string>
     <string name="it_done_be_a_doggo">it done be a doggo</string>
     <string name="logo">logo</string>
@@ -34,4 +35,19 @@
     <string name="date">Date</string>
     <string name="notes">Notes</string>
     <string name="title">Title</string>
+
+    <string-array name="vacine">
+        <item>Rabies</item>
+        <item>Distemper</item>
+        <item>Parvovirus</item>
+        <item>Adenovirus type 1</item>
+        <item>Adenovirus type 2</item>
+    </string-array>
+
+
+
+
+
+
+
 </resources>
