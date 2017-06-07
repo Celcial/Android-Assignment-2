@@ -50,7 +50,6 @@
         android:background="@null"
         android:onClick="onClick_toPetInfo"
         android:scaleType="centerInside"
-        android:src="@drawable/red_dot"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
         app:srcCompat="@drawable/pet_info" />
@@ -65,7 +64,6 @@
         android:background="@null"
         android:onClick="onClick_toPetSchedule"
         android:scaleType="centerInside"
-        android:src="@drawable/red_dot"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
         app:srcCompat="@drawable/pet_schedule" />
@@ -80,7 +78,6 @@
         android:background="@null"
         android:onClick="onClick_toPetFind"
         android:scaleType="centerInside"
-        android:src="@drawable/red_dot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:srcCompat="@drawable/find_pet" />
@@ -95,7 +92,6 @@
         android:background="@null"
         android:onClick="onClick_toPetCall"
         android:scaleType="centerInside"
-        android:src="@drawable/red_dot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/call_pet" />
