@@ -85,9 +85,9 @@ public class createEvent extends Activity{
                         }
 
                         else{
-                            EventDB helper = new EventDB(getApplicationContext());
-                            SQLiteDatabase dbHandler = helper.getWritableDatabase();
-                            String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
+                           // EventDB helper = new EventDB(getApplicationContext());
+                           // SQLiteDatabase dbHandler = helper.getWritableDatabase();
+                           // String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
 
                             setReminder();
                             finish();
