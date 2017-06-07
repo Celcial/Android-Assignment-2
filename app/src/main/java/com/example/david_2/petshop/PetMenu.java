@@ -66,7 +66,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
 
         if(position == dogNames.size())
         {
-            Intent CreatePet = new Intent(this, PetMenu.class);
+            Intent CreatePet = new Intent(this, createPet.class);
             //startActivity(new Intent(PetMenu.this, createPet.class));
             startActivityForResult(CreatePet, 1);
         }

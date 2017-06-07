@@ -30,6 +30,7 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
     Typeface custom_font;
     ArrayList<String> allFunctions;
     GridView theGrid;
+    Intent[] allIntents;
 
     Typeface name_font;
     @Override
@@ -54,6 +55,12 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
         theGrid.setAdapter(new gridAdapter(this));
         theGrid.setOnItemClickListener(this);
 
+        allIntents = new Intent[4];
+        allIntents[0] = new Intent(this,PetInfo.class);
+        allIntents[1] = new Intent(this, PetSchedule.class);
+        allIntents[2] = new Intent(this, PetFind.class);
+        allIntents[3] = new Intent(this, PetCall.class);
+
         Toast.makeText(getApplicationContext(),"" + id + "", Toast.LENGTH_LONG).show();
 
     }
@@ -61,7 +68,8 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
-
+        allIntents[position].putExtra("id", position + 1);
+        startActivity(allIntents[position]);
     }
 
     class ViewHolder
@@ -118,13 +126,10 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
             }
             holder.theText.setText(allFunctions.get(position));
             holder.theText.setTextSize(25);
-
             holder.theText.setTypeface(custom_font);
-            //holder.theCirle.setImageResource(R.drawable.red_dot_lined);
             return row;
         }
     }
-
 
     public void onClick_toPetInfo(View aView)
     {
