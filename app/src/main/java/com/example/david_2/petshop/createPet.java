@@ -38,9 +38,13 @@ public class createPet extends Activity {
     EditText dogName;
     Button newPetButton, allDogs, allVaccines, allDogVaccines;
 
+    Button test;
+    TextView id;
+    Button test2;
+    TextView petName;
+
     String PetName;
-    String Height;
-    String Weight;
+
 
 
     @Override
@@ -64,7 +68,6 @@ public class createPet extends Activity {
         allVaccines = (Button)findViewById(R.id.btn_all_vaccines);
         allDogVaccines = (Button)findViewById(R.id.btn_dog_vaccines);
 
-
         theDatabase = new petDatabase(this);
         theDatabase.getWritableDatabase();
 
@@ -74,6 +77,8 @@ public class createPet extends Activity {
         onClick_dog_vaccines();
 
     }
+
+
 
     public void onClick_allDogs()
     {
@@ -116,8 +121,7 @@ public class createPet extends Activity {
                 while (data.moveToNext())
                 {
                     buffer.append("ID : " + data.getString(0) + "\n");
-                    buffer.append("Vaccine : " + data.getString(1) + "\n");
-                    buffer.append("Duration : " + data.getString(2) + "\n\n");
+                    buffer.append("Vaccine : " + data.getString(1) + "\n\n");
                 }
                 showMessage("Data : ", buffer.toString());
 
@@ -145,7 +149,8 @@ public class createPet extends Activity {
                 {
                     buffer.append("PetID : " + data.getString(0) + "\n");
                     buffer.append("VaccineID : " + data.getString(1) + "\n");
-                    buffer.append("Date : " + data.getString(2) + "\n\n");
+                    buffer.append("Date : " + data.getString(2) + "\n");
+                    buffer.append("Notes : " + data.getString(3) + "\n\n");
                 }
                 showMessage("Data : ", buffer.toString());
 
@@ -177,63 +182,6 @@ public class createPet extends Activity {
             }
         }
     }
-
-    /*public void csvLoadDogs ()
-    {
-        InputStream is = getResources().openRawResource(R.raw.dogs);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null)
-            {
-                // split on ","
-                String[] token = line.split(",");
-                // read data
-                Boolean state = theDatabase.insertDog_ID(parseInt(token[0]),token[1],token[2],token[3]);
-            }
-        } catch (IOException e) {
-            Log.wtf("createPet", "Error importing file on line" + line, e);
-            e.printStackTrace();
-        }
-    }
-
-    public void csvLoadVaccines ()
-    {
-        InputStream is = getResources().openRawResource(R.raw.vaccines);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null)
-            {
-                // split on ","
-                String[] token = line.split(",");
-                // read data
-                Boolean state = theDatabase.insertVaccine_ID(parseInt(token[0]),token[1],token[2]);
-            }
-        } catch (IOException e) {
-            Log.wtf("createPet", "Error importing file on line" + line, e);
-            e.printStackTrace();
-        }
-    }
-
-    public void csvLoadDogVaccines ()
-    {
-        InputStream is = getResources().openRawResource(R.raw.dogvaccines);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(is, Charset.forName("UTF-8")));
-        String line = "";
-        try {
-            while ((line = reader.readLine()) != null)
-            {
-                // split on ","
-                String[] token = line.split(",");
-                // read data
-                Boolean state = theDatabase.insertDogVaccine(parseInt(token[0]),parseInt(token[1]),token[2]);
-            }
-        } catch (IOException e) {
-            Log.wtf("createPet", "Error importing file on line" + line, e);
-            e.printStackTrace();
-        }
-    }*/
 
 // - - - TESTING - - - //
 

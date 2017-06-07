@@ -223,7 +223,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
                 // split on ","
                 String[] token = line.split(",");
                 // read data
-                Boolean state = theDatabase.insertVaccine_ID(parseInt(token[0]),token[1],token[2]);
+                Boolean state = theDatabase.insertVaccine_ID(parseInt(token[0]),token[1]);
             }
         } catch (IOException e) {
             Log.wtf("createPet", "Error importing file on line" + line, e);
@@ -242,7 +242,7 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
                 // split on ","
                 String[] token = line.split(",");
                 // read data
-                Boolean state = theDatabase.insertDogVaccine(parseInt(token[0]),parseInt(token[1]),token[2]);
+                Boolean state = theDatabase.insertDogVaccine(parseInt(token[0]),parseInt(token[1]),token[2], token[3]);
             }
         } catch (IOException e) {
             Log.wtf("createPet", "Error importing file on line" + line, e);
