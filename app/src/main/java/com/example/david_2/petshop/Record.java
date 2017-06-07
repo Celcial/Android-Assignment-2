@@ -1,6 +1,7 @@
 package com.example.david_2.petshop;
 
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -129,16 +130,12 @@ public class Record extends PetMenu {
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                /*
-                W5DBHelper helper = new W5DBHelper(getApplicationContext());
-                dbHandler = helper.getWritableDatabase();
+
+                CommandDB helper = new CommandDB(getApplicationContext());
+                SQLiteDatabase dbHandler = helper.getWritableDatabase();
                 String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
                 dbHandler.execSQL(sqlInsert);
-                */
 
-                //INSERT
-                //fileName.toUpperCase()
-                //AudioSavePathInDevice
                 finish();
             }
         });

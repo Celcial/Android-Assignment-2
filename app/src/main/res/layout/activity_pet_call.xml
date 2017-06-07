@@ -59,8 +59,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintTop_toBottomOf="@+id/iv_pet_img"
         app:srcCompat="@drawable/button3"
-        tools:layout_editor_absoluteX="141dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:id="@+id/button4"
