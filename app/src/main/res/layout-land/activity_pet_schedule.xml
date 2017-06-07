@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.david_2.petshop.PetFind"
-    >
+    android:background="@drawable/background_landscape">
 
-    <TextView
+<TextView
         android:id="@+id/tv_pet_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

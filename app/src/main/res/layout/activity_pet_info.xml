@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.david_2.petshop.PetInfo"
+    android:background="@drawable/background_portrait"
     >
+
 
     <TextView
         android:id="@+id/tv_gender"
@@ -17,7 +19,9 @@
         android:text="Gender:"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_weight" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_weight"
+        android:background="@color/redTheme"
+        />
 
     <TextView
         android:id="@+id/tv_weight"
@@ -29,7 +33,9 @@
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_height"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp"
+        android:background="@color/redTheme"
+        />
 
     <TextView
         android:id="@+id/tv_pet_name"
@@ -44,7 +50,9 @@
         android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/frml_frame"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.934" />
+        app:layout_constraintHorizontal_bias="0.934"
+        android:background="@color/redTheme"
+        />
 
     <TextView
         android:id="@+id/tv_height"
@@ -57,7 +65,9 @@
         app:layout_constraintTop_toBottomOf="@+id/frml_frame"
         android:layout_marginLeft="16dp"
         app:layout_constraintVertical_bias="0.143"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@color/redTheme"
+        />
 
     <FrameLayout
         android:id="@+id/frml_frame"
