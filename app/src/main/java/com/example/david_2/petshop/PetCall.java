@@ -22,7 +22,7 @@ public class PetCall extends AppCompatActivity {
     private Cursor cursor;
     private ArrayList<String> cmdName = new ArrayList<>();
     private ArrayList<String> cmdPath = new ArrayList<>();
-    //private W5DBHelper helper;
+    private CommandDB helper;
     private ArrayAdapter adapter;
     private MediaPlayer mediaPlayer ;
 
@@ -32,15 +32,11 @@ public class PetCall extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_call);
 
-//        btnAdd = (ImageButton) findViewById(R.id.button2);
-//        btnClear = (ImageButton) findViewById(R.id.button3);
-//        btnRefresh = (ImageButton) findViewById(R.id.button4);
-
         btnAdd = (ImageButton) findViewById(R.id.button2);
         btnClear = (ImageButton) findViewById(R.id.button3);
         btnRefresh = (ImageButton) findViewById(R.id.button4);
         gvCommand = (GridView) findViewById(R.id.gridView);
-/*
+
         UpdateList();
 
 
@@ -67,7 +63,7 @@ public class PetCall extends AppCompatActivity {
                 UpdateList();
             }
         });
-*/
+
 
         gvCommand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,13 +83,13 @@ public class PetCall extends AppCompatActivity {
 
     }
 
-/*
+
     public void UpdateList(){
         cmdName.clear();
         cmdPath.clear();
-        helper = new W5DBHelper(getApplicationContext());
+        helper = new CommandDB(getApplicationContext());
         dbHandler = helper.getReadableDatabase();
-        cursor = dbHandler.query(W5DBHelper.TABLE, new String[]{W5DBHelper.COMMAND,W5DBHelper.PATH}, null, null, null, null, null);
+        cursor = dbHandler.query(CommandDB.TABLE, new String[]{CommandDB.COMMAND,CommandDB.PATH}, null, null, null, null, null);
         while (cursor.moveToNext()) {
             cmdName.add(cursor.getString(cursor.getColumnIndex("COMMAND")));
             cmdPath.add(cursor.getString(cursor.getColumnIndex("PATH")));
@@ -102,6 +98,6 @@ public class PetCall extends AppCompatActivity {
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, cmdName);
         gvCommand.setAdapter(adapter);
     }
-*/
+
 }
 

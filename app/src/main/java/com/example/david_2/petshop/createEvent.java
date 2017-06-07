@@ -85,10 +85,9 @@ public class createEvent extends Activity{
                         }
 
                         else{
-                            //INSERT HERER
-                            // Title: String vac
-                            // Daten: String textDate.getTExt().toString();
-                            // Note: String textNote.getText().toString();
+                           // EventDB helper = new EventDB(getApplicationContext());
+                           // SQLiteDatabase dbHandler = helper.getWritableDatabase();
+                           // String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
 
                             setReminder();
                             finish();
@@ -100,7 +99,7 @@ public class createEvent extends Activity{
             public void onNothingSelected(AdapterView<?> arg0) {
                 // TODO Auto-generated method stub
             }
-            //Intent intent = new Intent(android.content.Intent.ACTION_VIEW,Uri.parse("geo:0,0?q=37.423156,-122.084917 (UNITEC)"));
+
         });
     }
 
