@@ -36,22 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintRight_toLeftOf="@+id/button4"
-        android:layout_marginRight="8dp" />
-
-    <ImageButton
-        android:id="@+id/button4"
-        android:layout_width="107dp"
-        android:layout_height="95dp"
-        android:background="?attr/selectableItemBackground"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/button4"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/gridView"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="58dp"
         app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
@@ -72,7 +57,8 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintVertical_bias="0.482"
         app:layout_constraintRight_toLeftOf="@+id/button2"
-        android:layout_marginRight="8dp" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.135" />
 
     <GridView
         android:id="@+id/gridView"
@@ -90,6 +76,7 @@
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintHorizontal_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

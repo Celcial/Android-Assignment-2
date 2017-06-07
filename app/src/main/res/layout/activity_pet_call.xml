@@ -43,7 +43,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/gridView"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="49dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageButton
@@ -57,27 +57,11 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_pet_img"
         app:srcCompat="@drawable/button3"
         tools:ignore="MissingConstraints"
-        app:layout_constraintRight_toLeftOf="@+id/button4"
-        android:layout_marginRight="8dp"
         app:layout_constraintLeft_toRightOf="@+id/button2"
-        android:layout_marginLeft="8dp" />
-
-    <ImageButton
-        android:id="@+id/button4"
-        android:layout_width="107dp"
-        android:layout_height="95dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="Refresh List"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/gridView"
-        app:layout_constraintTop_toBottomOf="@+id/iv_pet_img"
-        app:srcCompat="@drawable/button4"
-        tools:ignore="HardcodedText,RtlHardcoded"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginLeft="66dp"
+        android:layout_marginRight="49dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <GridView
         android:id="@+id/gridView"

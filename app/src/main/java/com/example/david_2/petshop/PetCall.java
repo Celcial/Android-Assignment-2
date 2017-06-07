@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PetCall extends AppCompatActivity {
-    private ImageButton btnAdd,btnClear,btnRefresh;
+    private ImageButton btnAdd,btnClear;
     private GridView gvCommand;
     private SQLiteDatabase dbHandler;
     private Cursor cursor;
@@ -35,7 +35,6 @@ public class PetCall extends AppCompatActivity {
 
         btnAdd = (ImageButton) findViewById(R.id.button2);
         btnClear = (ImageButton) findViewById(R.id.button3);
-        btnRefresh = (ImageButton) findViewById(R.id.button4);
         gvCommand = (GridView) findViewById(R.id.gridView);
 
         UpdateList();
@@ -58,12 +57,12 @@ public class PetCall extends AppCompatActivity {
             }
         });
 
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateList();
-            }
-        });
+//        btnRefresh.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                UpdateList();
+//            }
+//        });
 
 
         gvCommand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
