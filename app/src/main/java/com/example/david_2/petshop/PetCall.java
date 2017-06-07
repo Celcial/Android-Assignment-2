@@ -45,8 +45,7 @@ public class PetCall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PetCall.this, Record.class);
-                startActivity(intent);
-                adapter.notifyDataSetChanged();
+                startActivityForResult(intent,1);
             }
         });
 
@@ -84,6 +83,11 @@ public class PetCall extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UpdateList();
+    }
 
     public void UpdateList(){
         cmdName.clear();

@@ -79,7 +79,7 @@ public class createEvent extends Activity{
                 addButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (!vac.matches("[a-zA-Z]+"))
+                        if (!vac.matches(".*[a-zA-Z]+.*"))
                         {
                             Toast.makeText(createEvent.this, "Invalid Title", Toast.LENGTH_LONG).show();
                         }
