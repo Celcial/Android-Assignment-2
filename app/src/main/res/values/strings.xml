@@ -9,4 +9,12 @@
     <string name="cancel">Cancel</string>
     <string name="command_name">Command Name</string>
     <string name="button">Add</string>
+
+    <string-array name="vacine">
+        <item>Rabies</item>
+        <item>Distemper</item>
+        <item>Parvovirus</item>
+        <item>Adenovirus type 1</item>
+        <item>Adenovirus type 2</item>
+    </string-array>
 </resources>
