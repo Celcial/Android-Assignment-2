@@ -1,23 +1,22 @@
 
 package com.example.david_2.petshop;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class PetCall extends AppCompatActivity {
-    private Button btnAdd,btnClear,btnRefresh;
+    private ImageButton btnAdd,btnClear,btnRefresh;
     private GridView gvCommand;
     private SQLiteDatabase dbHandler;
     private Cursor cursor;
@@ -33,9 +32,13 @@ public class PetCall extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_call);
 
-        btnAdd = (Button) findViewById(R.id.button2);
-        btnClear = (Button) findViewById(R.id.button3);
-        btnRefresh = (Button) findViewById(R.id.button4);
+//        btnAdd = (ImageButton) findViewById(R.id.button2);
+//        btnClear = (ImageButton) findViewById(R.id.button3);
+//        btnRefresh = (ImageButton) findViewById(R.id.button4);
+
+        btnAdd = (ImageButton) findViewById(R.id.button2);
+        btnClear = (ImageButton) findViewById(R.id.button3);
+        btnRefresh = (ImageButton) findViewById(R.id.button4);
         gvCommand = (GridView) findViewById(R.id.gridView);
 /*
         UpdateList();
