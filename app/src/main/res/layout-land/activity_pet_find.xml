@@ -19,5 +19,6 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintVertical_bias="0.502"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        tools:ignore="RtlHardcoded" />
 </android.support.constraint.ConstraintLayout>
