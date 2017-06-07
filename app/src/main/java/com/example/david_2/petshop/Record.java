@@ -1,6 +1,7 @@
 package com.example.david_2.petshop;
 
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class Record extends PetMenu {
     private MediaRecorder mediaRecorder ;
     private MediaPlayer mediaPlayer ;
     public static final int RequestPermissionCode = 1;
+    private SQLiteDatabase dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class Record extends PetMenu {
         btnStop.setEnabled(false);
         btnStartPlayback.setEnabled(false);
         btnStopPlayback.setEnabled(false);
-        txtAdd = (EditText) findViewById(R.id.etDate);
+        txtAdd = (EditText) findViewById(R.id.etTitle);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,24 +127,18 @@ public class Record extends PetMenu {
                 }
             }
         });
-
+/*
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                /*
                 W5DBHelper helper = new W5DBHelper(getApplicationContext());
                 dbHandler = helper.getWritableDatabase();
                 String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
                 dbHandler.execSQL(sqlInsert);
-                */
-
-                //INSERT
-                //fileName.toUpperCase()
-                //AudioSavePathInDevice
                 finish();
             }
         });
-
+*/
         btnCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

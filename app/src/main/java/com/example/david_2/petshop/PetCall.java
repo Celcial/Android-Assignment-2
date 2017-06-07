@@ -1,4 +1,3 @@
-
 package com.example.david_2.petshop;
 
 import android.content.Intent;
@@ -83,8 +82,8 @@ public class PetCall extends AppCompatActivity {
         });
 
     }
-
 /*
+
     public void UpdateList(){
         cmdName.clear();
         cmdPath.clear();

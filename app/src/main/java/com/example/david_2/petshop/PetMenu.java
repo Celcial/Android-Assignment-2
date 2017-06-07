@@ -66,19 +66,32 @@ public class PetMenu extends AppCompatActivity implements AdapterView.OnItemClic
 
         if(position == dogNames.size())
         {
-            startActivity(new Intent(PetMenu.this, createPet.class));
-            this.recreate();
+            Intent CreatePet = new Intent(this, PetMenu.class);
+            //startActivity(new Intent(PetMenu.this, createPet.class));
+            startActivityForResult(CreatePet, 1);
         }
         else
         {
             PetDetails = new Intent(this, PetDetails.class);
             PetDetails.putExtra("id", (position + 1)); // dogIDs.get(position)
             PetDetails.putExtra("allNames", (dogNames.get(position)));
-            startActivity(PetDetails);
-            this.recreate();
+            startActivityForResult(PetDetails, 1);
+
         }
     }
+//#############################
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        UpdateGrid();
+    }
 
+    public void UpdateGrid()
+    {
+        myGrid.refreshDrawableState();
+    }
+//#############################
     class ViewHolder
     {
         //Button dogNameTextView;
