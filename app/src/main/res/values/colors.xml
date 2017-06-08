@@ -8,4 +8,8 @@
     <color name="charcoal">#272727</color>
     <color name="white">#fff</color>
     <color name="darkerRed">#b93c40</color>
+    <color name="orangePastel">#d69a45</color>
+    <color name="greenPastel">#45d67f</color>
+    <color name="bluePastel">#4597d6</color>
+    <color name="yellowPastel">#d6bc45</color>
 </resources>

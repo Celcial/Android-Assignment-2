@@ -1,28 +1,29 @@
+
 package com.example.david_2.petshop;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class PetCall extends AppCompatActivity {
-    private Button btnAdd,btnClear,btnRefresh;
+    private ImageButton btnAdd,btnClear;
     private GridView gvCommand;
     private SQLiteDatabase dbHandler;
     private Cursor cursor;
     private ArrayList<String> cmdName = new ArrayList<>();
     private ArrayList<String> cmdPath = new ArrayList<>();
-    //private W5DBHelper helper;
+    private CommandDB helper;
     private ArrayAdapter adapter;
     private MediaPlayer mediaPlayer ;
 
@@ -32,11 +33,10 @@ public class PetCall extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_call);
 
-        btnAdd = (Button) findViewById(R.id.button2);
-        btnClear = (Button) findViewById(R.id.button3);
-        btnRefresh = (Button) findViewById(R.id.button4);
+        btnAdd = (ImageButton) findViewById(R.id.button2);
+        btnClear = (ImageButton) findViewById(R.id.button3);
         gvCommand = (GridView) findViewById(R.id.gridView);
-/*
+
         UpdateList();
 
 
@@ -44,8 +44,7 @@ public class PetCall extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PetCall.this, Record.class);
-                startActivity(intent);
-                adapter.notifyDataSetChanged();
+                startActivityForResult(intent,1);
             }
         });
 
@@ -57,13 +56,13 @@ public class PetCall extends AppCompatActivity {
             }
         });
 
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UpdateList();
-            }
-        });
-*/
+//        btnRefresh.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                UpdateList();
+//            }
+//        });
+
 
         gvCommand.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -82,14 +81,19 @@ public class PetCall extends AppCompatActivity {
         });
 
     }
-/*
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UpdateList();
+    }
 
     public void UpdateList(){
         cmdName.clear();
         cmdPath.clear();
-        helper = new W5DBHelper(getApplicationContext());
+        helper = new CommandDB(getApplicationContext());
         dbHandler = helper.getReadableDatabase();
-        cursor = dbHandler.query(W5DBHelper.TABLE, new String[]{W5DBHelper.COMMAND,W5DBHelper.PATH}, null, null, null, null, null);
+        cursor = dbHandler.query(CommandDB.TABLE, new String[]{CommandDB.COMMAND,CommandDB.PATH}, null, null, null, null, null);
         while (cursor.moveToNext()) {
             cmdName.add(cursor.getString(cursor.getColumnIndex("COMMAND")));
             cmdPath.add(cursor.getString(cursor.getColumnIndex("PATH")));
@@ -98,6 +102,6 @@ public class PetCall extends AppCompatActivity {
         adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, cmdName);
         gvCommand.setAdapter(adapter);
     }
-*/
+
 }
 

@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.david_2.petshop.PetFind"
-    >
+    android:background="@drawable/background_landscape">
 
-    <TextView
+<TextView
         android:id="@+id/tv_pet_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,26 +41,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <ScrollView
-        android:id="@+id/sv_all_events"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib_add_event"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintLeft_toLeftOf="parent"
+    <GridView
+        android:id="@+id/gvEvent"
+        android:layout_width="527dp"
+        android:layout_height="218dp"
+        android:layout_marginRight="32dp"
+        android:background="@color/redTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pet_name"
-        app:layout_constraintVertical_bias="0.05">
-
-        <LinearLayout
-            android:id="@+id/l_all_events"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496" />
 
 </android.support.constraint.ConstraintLayout>

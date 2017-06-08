@@ -30,7 +30,6 @@ public class Record extends PetMenu {
     private MediaRecorder mediaRecorder ;
     private MediaPlayer mediaPlayer ;
     public static final int RequestPermissionCode = 1;
-    private SQLiteDatabase dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class Record extends PetMenu {
         btnStop.setEnabled(false);
         btnStartPlayback.setEnabled(false);
         btnStopPlayback.setEnabled(false);
-        txtAdd = (EditText) findViewById(R.id.etTitle);
+        txtAdd = (EditText) findViewById(R.id.etDate);
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,18 +126,20 @@ public class Record extends PetMenu {
                 }
             }
         });
-/*
+
         btnSave.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                W5DBHelper helper = new W5DBHelper(getApplicationContext());
-                dbHandler = helper.getWritableDatabase();
+
+                CommandDB helper = new CommandDB(getApplicationContext());
+                SQLiteDatabase dbHandler = helper.getWritableDatabase();
                 String sqlInsert = "insert into COMMANDLIST (CID,COMMAND,PATH) values(null,'"+fileName.toUpperCase()+"','"+AudioSavePathInDevice+"');";
                 dbHandler.execSQL(sqlInsert);
+
                 finish();
             }
         });
-*/
+
         btnCancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

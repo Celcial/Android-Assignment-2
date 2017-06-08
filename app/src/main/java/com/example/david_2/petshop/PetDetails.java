@@ -29,6 +29,7 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
     Context context;
     Typeface custom_font;
     ArrayList<String> allFunctions;
+    ArrayList<ImageView> allImages;
     GridView theGrid;
     Intent[] allIntents;
 
@@ -61,7 +62,7 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
         allIntents[2] = new Intent(this, PetFind.class);
         allIntents[3] = new Intent(this, PetCall.class);
 
-        Toast.makeText(getApplicationContext(),"" + id + "", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"" + petName + "", Toast.LENGTH_LONG).show();
 
     }
 
@@ -88,10 +89,16 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
         {
             custom_font = Typeface.createFromAsset(getAssets(),"fonts/MixStriped.ttf");
             allFunctions = new ArrayList<String>();
-            allFunctions.add("Details");
+            allFunctions.add("");
+            allFunctions.add("");
+            allFunctions.add("");
+            allFunctions.add("");
+            /*allFunctions.add("Details");
             allFunctions.add("Schedule");
             allFunctions.add("Locate");
-            allFunctions.add("Call Pet");
+            allFunctions.add("Call pet");*/
+
+
         }
 
         @Override
@@ -124,9 +131,29 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
             {
                 holder = (ViewHolder) row.getTag();
             }
+            if(position == 0)
+            {
+                holder.theCirle.setImageResource(R.drawable.dot);
+            }
+            else if (position == 1)
+            {
+                holder.theCirle.setImageResource(R.drawable.cal);
+                holder.theCirle.setScaleX(1);
+                holder.theCirle.setScaleY(1);
+            }
+            else if (position == 2)
+            {
+                holder.theCirle.setImageResource(R.drawable.map);
+            }
+            else if(position == 3)
+            {
+                holder.theCirle.setImageResource(R.drawable.phone);
+            }
+
             holder.theText.setText(allFunctions.get(position));
             holder.theText.setTextSize(25);
             holder.theText.setTypeface(custom_font);
+
             return row;
         }
     }
@@ -135,24 +162,28 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
     {
         Intent PetInfo = new Intent(this, PetInfo.class);
         PetInfo.putExtra("id", id);
+        PetInfo.putExtra("name", "a" + name_header.getText().toString());
         startActivity(PetInfo);
     }
     public void onClick_toPetSchedule(View aView)
     {
         Intent PetSchedule = new Intent(this, PetSchedule.class);
         PetSchedule.putExtra("id", id);
+        PetSchedule.putExtra("name", "a" + name_header.getText().toString());
         startActivity(PetSchedule);
     }
     public void onClick_toPetFind(View aView)
     {
         Intent PetFind = new Intent(this, PetFind.class);
         PetFind.putExtra("id", id);
+        PetFind.putExtra("name", "a" + name_header.getText().toString());
         startActivity(PetFind);
     }
     public void onClick_toPetCall(View aView)
     {
         Intent PetCall = new Intent(this, PetCall.class);
         PetCall.putExtra("id", id);
+        PetCall.putExtra("name", "a" + name_header.getText().toString());
         startActivity(PetCall);
     }
 }
