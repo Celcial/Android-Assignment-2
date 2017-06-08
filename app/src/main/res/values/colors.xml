@@ -3,8 +3,9 @@
     <color name="colorPrimary">#d6454a</color>
     <color name="colorPrimaryDark">#d6454a</color>
     <color name="colorAccent">#000</color>
-    <color name="redTheme">#d7161d</color>
+    <color name="redTheme">#d6454a</color>
     <color name="solidRed">#d6454a</color>
     <color name="charcoal">#272727</color>
     <color name="white">#fff</color>
+    <color name="darkerRed">#b93c40</color>
 </resources>

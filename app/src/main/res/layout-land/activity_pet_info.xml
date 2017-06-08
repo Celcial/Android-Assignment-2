@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.david_2.petshop.PetInfo"
-    android:background="@drawable/background_landscape">
+    >
 
-<TextView
+    <TextView
         android:id="@+id/tv_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="22dp"
-        android:text="@string/vaccinations"
+        android:text="Vaccinations"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         android:layout_marginStart="32dp"
@@ -21,9 +21,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp"
         app:layout_constraintLeft_toRightOf="@+id/iv_pet_img"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:background="@color/redTheme"
-    />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/textView6"
@@ -31,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="18dp"
-        android:text="@string/gender"
+        android:text="Gender:"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_weight"
         android:layout_marginStart="32dp"
@@ -39,9 +37,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp"
         app:layout_constraintLeft_toRightOf="@+id/iv_pet_img"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:background="@color/redTheme"
-        />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_weight"
@@ -49,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="18dp"
-        android:text="@string/weight"
+        android:text="Weight:"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_height"
         android:layout_marginStart="32dp"
@@ -57,9 +53,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp"
         app:layout_constraintLeft_toRightOf="@+id/iv_pet_img"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:background="@color/redTheme"
-        />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <ImageView
         android:id="@+id/iv_pet_img"
@@ -69,7 +63,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/pet_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -85,15 +78,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/pet_name"
+        android:text="PET-NAME"
         android:textAlignment="center"
         android:textSize="28sp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@+id/iv_pet_img"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/redTheme"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_height"
@@ -101,7 +92,7 @@
         android:layout_height="29dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="17dp"
-        android:text="@string/height"
+        android:text="Height:"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/tv_pet_name"
         android:layout_marginStart="32dp"
@@ -109,7 +100,5 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginEnd="8dp"
         app:layout_constraintLeft_toRightOf="@+id/iv_pet_img"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:background="@color/redTheme"
-        />
+        app:layout_constraintHorizontal_bias="0.0" />
 </android.support.constraint.ConstraintLayout>

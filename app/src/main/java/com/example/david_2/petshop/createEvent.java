@@ -3,39 +3,27 @@ package com.example.david_2.petshop;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * Created by David_2 on 31/05/2017.
  */
 
 public class createEvent extends Activity{
-    private EditText dateText,noteText;
-
+    private EditText dateText,titleText,noteText;
     private Calendar myCalendar = Calendar.getInstance();
     private Button addButton;
     private final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    private petDatabase db;
-    private SQLiteDatabase dbHandler;
-    private Spinner spTitle;
-    private List<String> vacineList;
-    private String vac="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +37,11 @@ public class createEvent extends Activity{
         int height = dm.widthPixels;
         getWindow().setLayout((int)(width*.8),(int)(height*.9));
 
-        dateText = (EditText)findViewById(R.id.etDate);
+        dateText = (EditText)findViewById(R.id.etTitle);
         dateText.setText(sdf.format(myCalendar.getTime()));
+        titleText = (EditText)findViewById(R.id.etDate);
         noteText = (EditText) findViewById(R.id.etNote);
         addButton = (Button) findViewById(R.id.btnAdd);
-        spTitle = (Spinner)findViewById(R.id.spnTitle);
-        vacineList = Arrays.asList(getResources().getStringArray(R.array.vacine));
-        db = new petDatabase(getApplicationContext());
-        dbHandler = db.getWritableDatabase();
 
         //Open date picker pop-up
         dateText.setOnClickListener(new View.OnClickListener() {
@@ -70,40 +55,18 @@ public class createEvent extends Activity{
         });
 
         //Add Event
-        spTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1,int arg2, long arg3) {
-
-                vac = vacineList.get(arg2);
-
-                addButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (!vac.matches(".*[a-zA-Z]+.*"))
-                        {
-                            Toast.makeText(createEvent.this, "Invalid Title", Toast.LENGTH_LONG).show();
-                        }
-
-                        else{
-                            EventDB helper = new EventDB(getApplicationContext());
-                            SQLiteDatabase dbHandler = helper.getWritableDatabase();
-                            String sqlInsert = "insert into EVENT (CID,TITLE,DATE,NOTE) values(null,'"
-                                    +vac +"','"
-                                    +dateText.getText().toString() +"','"
-                                    +noteText.getText().toString()+"');";
-                            dbHandler.execSQL(sqlInsert);
-
-                            setReminder();
-                            finish();
-                        }
-                    }
-                });
+            public void onClick(View v) {
+                if (!titleText.getText().toString().matches("[a-zA-Z]+"))
+                {
+                    Toast.makeText(createEvent.this, "Invalid Title", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    setReminder();
+                    finish();
+                }
             }
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-
         });
     }
 
@@ -119,7 +82,7 @@ public class createEvent extends Activity{
         String eventUriString = "content://com.android.calendar/events";
         ContentValues eventValues = new ContentValues();
         eventValues.put(CalendarContract.Events.CALENDAR_ID, 1);
-        eventValues.put(CalendarContract.Events.TITLE, vac);
+        eventValues.put(CalendarContract.Events.TITLE, titleText.getText().toString());
         eventValues.put(CalendarContract.Events.DESCRIPTION, noteText.getText().toString());
         eventValues.put(CalendarContract.Events.EVENT_TIMEZONE, "GMT");
         eventValues.put(CalendarContract.Events.DTSTART, startTime);

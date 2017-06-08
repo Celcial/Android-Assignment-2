@@ -7,17 +7,102 @@
     tools:context="com.example.david_2.petshop.PetDetails"
     tools:layout_editor_absoluteY="25dp"
     tools:layout_editor_absoluteX="0dp"
-    android:background="@drawable/background_portrait"
+
     >
+
+<!--    <ImageButton
+        android:id="@+id/ib_info"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="onClick_toPetInfo"
+        android:scaleType="centerInside"
+        android:src="@drawable/red_dot"
+        app:layout_constraintBottom_toTopOf="@+id/ib_find"
+        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/ib_schedule"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/ib_schedule"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="onClick_toPetSchedule"
+        android:scaleType="centerInside"
+        android:src="@drawable/red_dot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageButton
+        android:id="@+id/ib_find"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="onClick_toPetFind"
+        android:scaleType="centerInside"
+        android:src="@drawable/red_dot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/ib_call"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
+
+    <ImageButton
+        android:id="@+id/ib_call"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:onClick="onClick_toPetCall"
+        android:scaleType="centerInside"
+        android:src="@drawable/red_dot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_schedule"
+        app:layout_constraintVertical_bias="0.771" />-->
 
     <ImageView
         android:id="@+id/iv_app_logo"
         android:layout_width="394dp"
         android:layout_height="90dp"
-        android:layout_marginTop="0dp"
-        android:contentDescription="@string/logo"
         android:padding="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,78 +116,14 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/charcoal"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frml_frame"
-        android:background="@color/redTheme"
-        />
-
-    <ImageButton
-        android:id="@+id/ib_info"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="onClick_toPetInfo"
-        android:scaleType="centerInside"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
-        app:srcCompat="@drawable/pet_info"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib_find"
-        app:layout_constraintVertical_bias="0.529" />
-
-    <ImageButton
-        android:id="@+id/ib_schedule"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="onClick_toPetSchedule"
-        android:scaleType="centerInside"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
-        app:srcCompat="@drawable/pet_schedule"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ib_call"
-        app:layout_constraintVertical_bias="0.529" />
-
-    <ImageButton
-        android:id="@+id/ib_find"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginLeft="32dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="onClick_toPetFind"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@drawable/find_pet" />
-
-    <ImageButton
-        android:id="@+id/ib_call"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginRight="32dp"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:onClick="onClick_toPetCall"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/call_pet" />
+        app:layout_constraintTop_toBottomOf="@+id/frml_frame" />
 
     <FrameLayout
         android:id="@+id/frml_frame"
@@ -125,7 +146,6 @@
             android:id="@+id/iv_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/pet_image"
             app:srcCompat="@drawable/frame" />
 
     </FrameLayout>
@@ -145,7 +165,24 @@
         app:layout_constraintRight_toRightOf="@+id/frml_frame"
         app:layout_constraintTop_toTopOf="@+id/frml_frame"
         app:srcCompat="@android:drawable/ic_menu_camera"
-        tools:layout_editor_absoluteY="144dp"
-        tools:layout_editor_absoluteX="270dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp" />
+
+    <GridView
+        android:id="@+id/btn_grid"
+        android:layout_width="353dp"
+        android:layout_height="317dp"
+        android:columnWidth="120dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="spacingWidthUniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_header"
+        app:layout_constraintVertical_bias="1.0">
+
+
+    </GridView>
 
 </android.support.constraint.ConstraintLayout>
