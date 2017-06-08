@@ -30,23 +30,11 @@ public class PetInfo extends AppCompatActivity {
 
         petsName.setTypeface(custom_font);
 
-
-
-
-
-
-
         weight = (TextView)findViewById(R.id.tv_weight);
         weight.setTypeface(custom_font);
         height = (TextView)findViewById(R.id.tv_height);
         height.setTypeface(custom_font);
         gender = (TextView)findViewById(R.id.tv_gender);
         gender.setTypeface(custom_font);
-
-
-
-
-
-
     }
 }

@@ -40,8 +40,7 @@ public class petDatabase extends SQLiteOpenHelper {
     public static final String col_1 = "PETID";
     public static final String col_2 = "PETNAME";
     public static final String col_3 = "WEIGHT";
-    public static final String col_4 = "HEIGHT";
-
+    public static final String col_4 = "HEIGHT"; // add MORE SHIT
     // Command table details
     public static final String table_command = "COMMAND";
     public static final String col_11 = "COMMANDID";

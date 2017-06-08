@@ -70,6 +70,7 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
         allIntents[position].putExtra("id", position + 1);
+        allIntents[position].putExtra("name", petName);
         startActivity(allIntents[position]);
     }
 
@@ -93,12 +94,6 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
             allFunctions.add("");
             allFunctions.add("");
             allFunctions.add("");
-            /*allFunctions.add("Details");
-            allFunctions.add("Schedule");
-            allFunctions.add("Locate");
-            allFunctions.add("Call pet");*/
-
-
         }
 
         @Override
@@ -156,34 +151,5 @@ public class PetDetails extends AppCompatActivity implements AdapterView.OnItemC
 
             return row;
         }
-    }
-
-    public void onClick_toPetInfo(View aView)
-    {
-        Intent PetInfo = new Intent(this, PetInfo.class);
-        PetInfo.putExtra("id", id);
-        PetInfo.putExtra("name", "a" + name_header.getText().toString());
-        startActivity(PetInfo);
-    }
-    public void onClick_toPetSchedule(View aView)
-    {
-        Intent PetSchedule = new Intent(this, PetSchedule.class);
-        PetSchedule.putExtra("id", id);
-        PetSchedule.putExtra("name", "a" + name_header.getText().toString());
-        startActivity(PetSchedule);
-    }
-    public void onClick_toPetFind(View aView)
-    {
-        Intent PetFind = new Intent(this, PetFind.class);
-        PetFind.putExtra("id", id);
-        PetFind.putExtra("name", "a" + name_header.getText().toString());
-        startActivity(PetFind);
-    }
-    public void onClick_toPetCall(View aView)
-    {
-        Intent PetCall = new Intent(this, PetCall.class);
-        PetCall.putExtra("id", id);
-        PetCall.putExtra("name", "a" + name_header.getText().toString());
-        startActivity(PetCall);
     }
 }

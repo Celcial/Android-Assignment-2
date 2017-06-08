@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,17 @@ public class Record extends PetMenu {
         btnStartPlayback.setEnabled(false);
         btnStopPlayback.setEnabled(false);
         txtAdd = (EditText) findViewById(R.id.etDate);
+
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.widthPixels;
+
+        getWindow().setLayout((int)(width),(int)(height*.9));
+
+
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
